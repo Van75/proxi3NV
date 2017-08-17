@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<ui:decorate template="template/template.xhtml">
+	<ui:define name="contenu">
+		<h:head>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<h:outputStylesheet name="css/bootstrap.min.css" />
+
+			<title>Add Client</title>
+
+		</h:head>
+
+		<h:body>
+			<h:outputStylesheet name="css/monstyle.css" />
+			<div id="wrapper">
+				<div id="header"></div>
+			</div>
+
+			<div class="container">
+				<h2>Ajout Client</h2>
+
+				<h:messages globalOnly="true" />
+
+				<h:form id="form" style="margin-top: 10px;">
+					<h:panelGrid columns="3">
+
+						
+							<h:outputLabel style="margin-top: 10px">Prénom:</h:outputLabel>
+							<h:inputText class="form-control" value="#{client.firstName}"
+								id="firstName" style="margin-top: 10px"/>
+							<h:message for="firstName" />
+	
+
+							<h:outputLabel>Nom:</h:outputLabel>
+							<h:inputText class="form-control" value="#{client.lastName}"
+								id="lastName" style="margin-top: 10px"/>
+							<h:message for="lastName" />
+				
+							<h:outputLabel>Ville:</h:outputLabel>
+							<h:inputText class="form-control" value="#{client.ville}"
+								id="ville" required="true" requiredMessage="Ville obligatoire" style="margin-top: 10px"/>
+							<h:message for="ville" />
+						
+						<h:outputLabel />
+						<h:commandButton value="Save" styleClass="save" style="margin-top: 10px"
+							action="#{clientController.addClient(client)}" />
+
+					</h:panelGrid>
+				</h:form>
+
+				<div style="clear: both;"></div>
+
+				<p>
+					<h:outputLink value="list-clients.xhtml">Back to List</h:outputLink>
+				</p>
+
+			</div>
+		</h:body>
+	</ui:define>
+</ui:decorate>
+</html>
